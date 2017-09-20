@@ -4,13 +4,13 @@
 	<thead>
 		<tr>
 			<th>#</th>
-			<th>Erros no Abstract</th>
+			<th>Erros no título</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<%
-				List<String> erros = (List<String>) request.getAttribute("errorAbstract");
+				List<String> erros = (List<String>) request.getAttribute("errorTitle");
 
 				int count = 0;
 				for (String erro : erros) {

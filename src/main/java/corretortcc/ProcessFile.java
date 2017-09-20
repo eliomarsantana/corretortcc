@@ -80,7 +80,7 @@ public class ProcessFile extends HttpServlet {
 					String value = item.getString();
 					
 					//System.out.println("Nome: "+name);
-					//System.out.println("Conteúdo: "+value);
+					//System.out.println("Conteï¿½do: "+value);
 					System.out.println("===============================");
 					FileTypeBuilder flb = new LatexConcreteBuilder(); 
 					Text text =	flb.createText(); 
@@ -89,12 +89,13 @@ public class ProcessFile extends HttpServlet {
 						String mainText = util.retiraCaracterEspecial(util.UTF8toISO(item.getString()));
 						
 						session.setAttribute("mainText", mainText);
-						flb.createAbstractServlet().service(request, response);;
 						
-						
-						Title t = flb.createTitle(item.getName(), mainText); 
+						flb.createTitleServlet().service(request, response);
+						flb.createAbstractServlet().service(request, response);
 
-						text.setTitulo(t);
+						
+
+						
 						
 	
 					}else {
@@ -108,7 +109,7 @@ public class ProcessFile extends HttpServlet {
 						}
 						
 					}
-				
+					request.getRequestDispatcher("/lista.jsp").forward(request, response);
 			
 		}
 

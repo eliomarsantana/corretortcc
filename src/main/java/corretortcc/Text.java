@@ -8,7 +8,7 @@ public class Text {
 	
 	public String mountText(){
 		
-		return titulo.getTitle()+"\n\n"+resumo.getResumo()+"\n\n"+section.getSection();
+		return titulo.getTitle()+"\n\n"+resumo.getAbstract()+"\n\n"+section.getSection();
 	}
 
 	public Title getTitulo() {

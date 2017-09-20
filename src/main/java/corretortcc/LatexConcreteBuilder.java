@@ -3,9 +3,9 @@ package corretortcc;
 public class LatexConcreteBuilder implements FileTypeBuilder{
 
 	@Override
-	public Title createTitle(String archiveName, String text) {
+	public TitleServlet createTitleServlet() {
 		// TODO Auto-generated method stub
-		return new Title(archiveName, text);
+		return new TitleServlet();
 	}
 
 	@Override

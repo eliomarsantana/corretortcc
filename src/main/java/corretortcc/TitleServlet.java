@@ -1,7 +1,6 @@
 package corretortcc;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class AbstractServlet
+ * Servlet implementation class TitleServlet
  */
-public class AbstractServlet extends HttpServlet {
+public class TitleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	public static String ABSTRACT;
+       
+	public static String TITLE;
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,15 +26,15 @@ public class AbstractServlet extends HttpServlet {
 		String mainText = (String) session.getAttribute("mainText");
 	
 		
-		Abstract abstractText = new Abstract(mainText);
-		ABSTRACT = abstractText.getAbstract();
-		Regras role = new Regras(ABSTRACT);
-		role.virgulaPonto(ABSTRACT);
-		role.encontrarDoisPontos(ABSTRACT);
-		role.espacoParentese(ABSTRACT);
-		role.espacoCitacao(ABSTRACT);
+		Title titleText = new Title(mainText);
+		TITLE = titleText.getTitle();
+		Regras role = new Regras(TITLE);
+		role.virgulaPonto(TITLE);
+		role.encontrarDoisPontos(TITLE);
+		role.espacoParentese(TITLE);
+		role.espacoCitacao(TITLE);
 		 
-		request.setAttribute("errorAbstract", role.getErros());
+		request.setAttribute("errorTitle", role.getErros());
 		
 	}
 

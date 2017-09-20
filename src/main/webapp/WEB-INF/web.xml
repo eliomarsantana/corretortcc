@@ -29,4 +29,14 @@
     <servlet-name>AbstractServlet</servlet-name>
     <url-pattern>/AbstractServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TitleServlet</display-name>
+    <servlet-name>TitleServlet</servlet-name>
+    <servlet-class>corretortcc.TitleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TitleServlet</servlet-name>
+    <url-pattern>/TitleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -8,9 +8,8 @@ public class Title {
 	private String title;
 	private String archiveName;
 	
-	public Title(String archiveName, String text){
+	public Title(String text){
 		setTitle(text);
-		setArchiveName(archiveName);
 	}
 	
 	public String getArchiveName() {
