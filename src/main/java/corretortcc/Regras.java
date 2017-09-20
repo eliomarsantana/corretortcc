@@ -67,8 +67,9 @@ public class Regras {
 
 	public List<String> virgulaPonto(String texto) {
 
-		String regex = "(\\w)(\\s+)([\\.,])";
-
+		
+		String regex = "(\\.|,)(\\w)";
+		
 		Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(texto);
 		while (matcher.find()) {
@@ -77,7 +78,7 @@ public class Regras {
 		return erros;
 	}
 
-	public List<String> getLista() {
+	public List<String> getErros() {
 		return erros;
 	}
 
@@ -100,8 +101,7 @@ public class Regras {
 		for (int i = 0; i < tam; i++) {
 			
 			if ((texto.charAt(i) == '(') && !(Character.isSpace(texto.charAt(i - 1)))) {
-				char t = texto.charAt(i);
-				char t2 = texto.charAt(i-1);
+				
 				erros.add(texto.substring(i-20, i - 1)+"<font face=\"arial\" size=2 style=\"background-color: #FFFF00\">"+texto.substring(i, i + 5)+"</font>"+texto.substring(i+5,i+20));
 
 			}

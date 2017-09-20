@@ -8,18 +8,18 @@ import javax.annotation.ManagedBean;
 @ManagedBean
 public class Abstract {
 
-	public Abstract(String archiveName, String text) {
-		setResumo(text);
-		setArchiveName(archiveName);
+	public Abstract(String text) {
+		setAbstract(text);
+		
 	}
 
-	public String getResumo() {
+	public String getAbstract() {
 		
 		
 		return text;
 	}
 
-	public void setResumo(String text) {
+	public void setAbstract(String text) {
 		
 
 		String resume = text.replace("\\", "\\\\");// escapando as barras no

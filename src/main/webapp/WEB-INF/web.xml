@@ -19,4 +19,14 @@
     <servlet-name>ProcessFile</servlet-name>
     <url-pattern>/ProcessFile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AbstractServlet</display-name>
+    <servlet-name>AbstractServlet</servlet-name>
+    <servlet-class>corretortcc.AbstractServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AbstractServlet</servlet-name>
+    <url-pattern>/AbstractServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

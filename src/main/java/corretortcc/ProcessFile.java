@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
@@ -53,12 +54,13 @@ public class ProcessFile extends HttpServlet {
 		request.removeAttribute("erros2");
 		request.removeAttribute("erros3");
 		request.removeAttribute("erros4");
+		
 		Util util = new Util();
 
 		response.setContentType("text/html;charset=UTF-8");
 
-		// int count1 = 0;
-
+		HttpSession session = request.getSession();
+		session.removeAttribute("mainText");
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
 			FileItemFactory factory = new DiskFileItemFactory();
@@ -86,11 +88,12 @@ public class ProcessFile extends HttpServlet {
 						
 						String mainText = util.retiraCaracterEspecial(util.UTF8toISO(item.getString()));
 						
+						session.setAttribute("mainText", mainText);
+						flb.createAbstractServlet().service(request, response);;
 						
-						Abstract r = flb.createAbstract(item.getName(), mainText);
+						
 						Title t = flb.createTitle(item.getName(), mainText); 
-						
-						text.setResumo(r);
+
 						text.setTitulo(t);
 						
 	
