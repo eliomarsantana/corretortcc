@@ -21,9 +21,9 @@ public class SectionServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String sectionText = (String) session.getAttribute("sectionText");
-	
+		String arquiveName = (String) session.getAttribute("arquiveName");
 		
-		Section section = new Section(sectionText);
+		Section section = new Section(sectionText, arquiveName);
 		SECTION = section.getSection();
 		Regras role = new Regras(sectionText);
 		role.virgulaPonto(sectionText);

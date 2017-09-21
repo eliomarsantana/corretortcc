@@ -5,6 +5,7 @@
 		<tr>
 			<th>#</th>
 			<th>Erros no título</th>
+			<th>Arquivo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,6 +25,7 @@
 			<th scope="row"><%=count++%></th>
 
 			<td><%=erro%></td>
+			<td>${arquiveName }</td>
 		</tr>
 		<%
 				}

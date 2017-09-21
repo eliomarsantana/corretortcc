@@ -40,7 +40,6 @@
 
     <!-- Page Content -->
    <div class="container">  
-   <input type="submit" onclick="javascript:history.back()" value="Voltar" />
    
     <div class="row">
 	<div class="col-lg-6">
@@ -52,7 +51,7 @@
     </div>
 	</div>
     <!-- /.container -->
-
+	<a href="javascript:window.history.go(-1)">Voltar</a>   
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">

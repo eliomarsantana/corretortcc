@@ -76,7 +76,8 @@ public class ProcessFile extends HttpServlet {
 		Iterator itr = items.iterator();
 		while (itr.hasNext()) {
 			FileItem item = (FileItem) itr.next();
-			String name = item.getName();
+			String arquiveName = item.getName();
+			session.setAttribute("arquiveName", arquiveName);
 			FileTypeBuilder flb = new LatexConcreteBuilder();
 
 			if (item.getName().endsWith(".tex")) {
@@ -85,6 +86,7 @@ public class ProcessFile extends HttpServlet {
 					String mainText = util.retiraCaracterEspecial(util.UTF8toISO(item.getString()));
 
 					session.setAttribute("mainText", mainText);
+					
 
 					flb.createTitleServlet().service(request, response);
 					flb.createAbstractServlet().service(request, response);

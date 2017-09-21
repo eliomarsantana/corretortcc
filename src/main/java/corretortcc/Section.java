@@ -5,8 +5,9 @@ import java.util.regex.Pattern;
 
 public class Section {
 
-	public Section(String text){
+	public Section(String text, String arquiveName){
 		setSection(text);
+		setArchiveName(arquiveName);
 	}
 	
 	public void setSection(String text) {

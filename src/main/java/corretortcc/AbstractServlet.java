@@ -23,9 +23,10 @@ public class AbstractServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String mainText = (String) session.getAttribute("mainText");
+		String arquiveName = (String) session.getAttribute("arquiveName");
 	
 		
-		Abstract abstractText = new Abstract(mainText);
+		Abstract abstractText = new Abstract(mainText, arquiveName);
 		ABSTRACT = abstractText.getAbstract();
 		Regras role = new Regras(ABSTRACT);
 		role.virgulaPonto(ABSTRACT);

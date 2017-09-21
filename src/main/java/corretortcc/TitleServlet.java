@@ -24,9 +24,10 @@ public class TitleServlet extends HttpServlet {
 		FileTypeBuilder flb = new LatexConcreteBuilder(); 
 		
 		String mainText = (String) session.getAttribute("mainText");
+		String arquiveName = (String) session.getAttribute("arquiveName");
 	
 		
-		Title titleText = new Title(mainText);
+		Title titleText = new Title(mainText, arquiveName);
 		TITLE = titleText.getTitle();
 		Regras role = new Regras(TITLE);
 		role.virgulaPonto(TITLE);

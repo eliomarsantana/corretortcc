@@ -8,8 +8,9 @@ import javax.annotation.ManagedBean;
 @ManagedBean
 public class Abstract {
 
-	public Abstract(String text) {
+	public Abstract(String text, String arquiveName) {
 		setAbstract(text);
+		setArchiveName(arquiveName);
 		
 	}
 
@@ -40,7 +41,7 @@ public class Abstract {
 		if (matcher.matches() && matcher.groupCount() == 1) {
 			this.text = matcher.group(1);
 		} else {
-			System.out.println("Não encontrou resumo.");
+			System.out.println("Nï¿½o encontrou resumo.");
 		}
 
 	}

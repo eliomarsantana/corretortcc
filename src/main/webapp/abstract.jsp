@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <table class="table table-hover">
 	<thead>
 		<tr>
 			<th>#</th>
 			<th>Erros no Abstract</th>
+			<th>Arquivo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,9 +27,11 @@
 			<th scope="row"><%=count++%></th>
 
 			<td><%=erro%></td>
+			<td>${arquiveName }</td>
 		</tr>
 		<%
 				}
 			}
 		%>
 	</tbody>
+</table>
