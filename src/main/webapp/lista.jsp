@@ -37,8 +37,11 @@
 
 <body>
 
+
     <!-- Page Content -->
-     
+   <div class="container">  
+   <input type="submit" onclick="javascript:history.back()" value="Voltar" />
+   
     <div class="row">
 	<div class="col-lg-6">
 	<jsp:include page="title.jsp"></jsp:include>
@@ -47,7 +50,7 @@
 	</div>
 
     </div>
-
+	</div>
     <!-- /.container -->
 
     <!-- Footer -->

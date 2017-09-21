@@ -4,23 +4,29 @@
 	<thead>
 		<tr>
 			<th>#</th>
-			<th>Erros na seção</th>
+			<th>Erros nas seções</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<%
-				List<String> errorSection = (List<String>) request.getAttribute("errorSection");
+				List<String> erros = (List<String>) request.getAttribute("errorSection");
 
 				int count = 0;
-				for (String error : errorSection) {
+				if(erros == null){
+					
+				%>
+				<td>Você não possui erros nas seções</td>	
+				<%
+				}else{
+				for (String erro : erros) {
 			%>
 			<th scope="row"><%=count++%></th>
 
-			<td><%=error%></td>
+			<td><%=erro%></td>
 		</tr>
 		<%
+				}
 			}
 		%>
 	</tbody>
-</table>

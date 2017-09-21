@@ -10,16 +10,23 @@
 	<tbody>
 		<tr>
 			<%
-				List<String> errorTitle = (List<String>) request.getAttribute("errorTitle");
+				List<String> erros = (List<String>) request.getAttribute("errorTitle");
 
 				int count = 0;
-				for (String erro : errorTitle) {
+				if(erros == null){
+					
+				%>
+				<td>Você não possui erros no título</td>	
+				<%
+				}else{
+				for (String erro : erros) {
 			%>
 			<th scope="row"><%=count++%></th>
 
 			<td><%=erro%></td>
 		</tr>
 		<%
+				}
 			}
 		%>
 	</tbody>

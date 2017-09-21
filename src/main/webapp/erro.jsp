@@ -5,6 +5,8 @@
 
 <head>
 
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -22,6 +24,7 @@
 
 <body>
 
+    </script>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         
@@ -44,14 +47,11 @@
 				String erro = (String) request.getAttribute("erro");
 		%>
         <h1 class="display-3"><%=erro %></h1>
-            <p class="lead">Faça aqui o Upload do "main.tex"</p>
-            <input name="arquivo" type="file" id="arquivo" value="arquivo" /><br><br>
-            <input type="submit" class="btn btn-primary btn-large" value="Uplad"/>
-        </header>
+</header>
 
         <!-- Page Features -->
         <div class="row text-center">
-
+<a href="javascript:window.history.go(-1)">Voltar</a>
 
         </div>
         <!-- /.row -->

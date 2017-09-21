@@ -87,7 +87,8 @@
 			</header>
 		</form>
 		<!-- Page Features -->
-		<div class="row text-center"></div>
+		<div class="row text-center">
+		</div>
 		<!-- /.row -->
 
 	</div>
