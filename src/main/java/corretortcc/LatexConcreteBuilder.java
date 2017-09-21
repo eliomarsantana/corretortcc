@@ -15,16 +15,16 @@ public class LatexConcreteBuilder implements FileTypeBuilder{
 	}
 
 	@Override
-	public Section createSection(String archiveName, String text) {
-		// TODO Auto-generated method stub
-		return new Section(archiveName, text);
-	}
-
-	@Override
 	public AbstractServlet createAbstractServlet() {
 		return new AbstractServlet();
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public SectionServlet createSectionServlet() {
+		// TODO Auto-generated method stub
+		return new SectionServlet();
 	}
 
 }

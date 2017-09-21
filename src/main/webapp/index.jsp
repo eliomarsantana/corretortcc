@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -23,68 +23,29 @@
 </head>
 
 <body>
+
 	<SCRIPT language=JavaScript>
-		function validar(formulario) {
+		/*function validar(formulario) {
 			if (formulario.arquivo.value == '') {
 				alert('POR FAVOR, ESCOLHA UM ARQUIVO!');
 				formulario.arquivo.focus();
 				return false;
 			}
 			return true;
+		}*/
+		function duplicarCampos() {
+			var clone = document.getElementById('origem').cloneNode(true);
+			var destino = document.getElementById('destino');
+			destino.appendChild(clone);
+			var camposClonados = clone.getElementsByTagName('input');
+			for (i = 0; i < camposClonados.length; i++) {
+				camposClonados[i].value = '';
+			}
 		}
-
-		$(document)
-				.ready(
-						function() {
-							var max_fields = 10; //maximum input boxes allowed
-							var wrapper = $(".input_fields_wrap"); //Fields wrapper
-							var add_button = $(".add_field_button"); //Add button ID
-
-							var x = 1; //initlal text box count
-							$(add_button)
-									.click(
-											function(e) { //on add input button click
-												e.preventDefault();
-
-												if (x < max_fields) { //max input box allowed
-													x++; //text box increment
-													$(wrapper)
-															.append(
-																	'<div><input type="file" /><a href="#" class="remove_field">Remove</a></div>'); //add input box
-												}
-												//Fazendo com que cada uma escreva seu name
-												replaceName();
-											});
-
-							$(wrapper).on("click", ".remove_field",
-									function(e) { //user click on remove text
-										e.preventDefault();
-										$(this).parent('div').remove();
-										x--;
-										replaceName();
-									})
-
-							function replaceName() {
-								wrapper
-										.find("input:file")
-										.each(
-												function() {
-													$(this)
-															.attr(
-																	'name',
-																	"arquivo"
-																			+ (+$(
-																					this)
-																					.index(
-																							"input:file") + 1));
-													$(this)
-															.val(
-																	$(this)
-																			.attr(
-																					'name'))
-												});
-							}
-						});
+		function removerCampos(id) {
+			var node1 = document.getElementById('destino');
+			node1.removeChild(node1.childNodes[0]);
+		}
 	</SCRIPT>
 
 	<!-- Navigation -->
@@ -108,13 +69,22 @@
 			onSubmit="return (validar(this))" enctype="multipart/form-data">
 			<!-- Jumbotron Header -->
 			<header class="jumbotron my-4">
-			<p class="lead">Faça aqui o Upload do "main.tex"</p>
-			<input name="arquivo" type="file" id="arquivo" value="arquivo" />
-			<!-- <input name="arquivo2" type="file" id="arquivo2" value="arquivo2" />-->
-			<br>
-			<br>
+			<p class="lead">Faça aqui o Upload do ".tex"</p>
+			<div id="origem">
+				<tr>
+					<th><input name="arquivo" type="file" id="arquivo"
+						value="arquivo" /></th>
+					<th><img src="img/botaomais.png" style="cursor: pointer;"
+						onclick="duplicarCampos();"></th>
+					<th><img src="img/botaomenos.png" style="cursor: pointer;"
+						onclick="removerCampos(this);"></th>
+				</tr>
+
+				<br>
+			</div>
+			<div id="destino"></div>
 			<input type="submit" class="btn btn-primary btn-large" value="Upload" />
-			</header>	
+			</header>
 		</form>
 		<!-- Page Features -->
 		<div class="row text-center"></div>

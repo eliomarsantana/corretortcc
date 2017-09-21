@@ -5,21 +5,20 @@ import java.util.regex.Pattern;
 
 public class Section {
 
-	public Section(String archiveName, String text){
+	public Section(String text){
 		setSection(text);
-		setArchiveName(archiveName);
 	}
 	
 	public void setSection(String text) {
 
-		String regex = "\\section{(?<meuGrupo>.*?)";
+		String regex = "\\\\section\\{(?<meuGrupo>.*?)";
 	    String retorno = "";
 
 	    Pattern pattern = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);;
 	    Matcher comparator = pattern.matcher(text);
 	    if (comparator.find(0)){
 	        this.text = comparator.group("meuGrupo");
-	    }else {System.out.println("não encontrou section");}
+	    }else {System.out.println("NÃ£o encontrou Section");}
 
 	}
 

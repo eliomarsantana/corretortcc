@@ -39,4 +39,14 @@
     <servlet-name>TitleServlet</servlet-name>
     <url-pattern>/TitleServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SectionServlet</display-name>
+    <servlet-name>SectionServlet</servlet-name>
+    <servlet-class>corretortcc.SectionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SectionServlet</servlet-name>
+    <url-pattern>/SectionServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

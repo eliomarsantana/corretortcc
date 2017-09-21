@@ -43,6 +43,7 @@
 	<div class="col-lg-6">
 	<jsp:include page="title.jsp"></jsp:include>
 	<jsp:include page="abstract.jsp"></jsp:include>
+	<jsp:include page="section.jsp"></jsp:include>
 	</div>
 
     </div>

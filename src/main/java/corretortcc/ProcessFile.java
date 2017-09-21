@@ -61,6 +61,8 @@ public class ProcessFile extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		session.removeAttribute("mainText");
+		session.removeAttribute("sectionText");
+		
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
 			FileItemFactory factory = new DiskFileItemFactory();
@@ -74,16 +76,9 @@ public class ProcessFile extends HttpServlet {
 			Iterator itr = items.iterator();
 			while (itr.hasNext()) {
 				FileItem item = (FileItem) itr.next();
-
-				
 					String name = item.getName();
-					String value = item.getString();
-					
-					//System.out.println("Nome: "+name);
-					//System.out.println("Conte�do: "+value);
-					System.out.println("===============================");
 					FileTypeBuilder flb = new LatexConcreteBuilder(); 
-					Text text =	flb.createText(); 
+					
 					if(item.getName().equals("main.tex")){
 						
 						String mainText = util.retiraCaracterEspecial(util.UTF8toISO(item.getString()));
@@ -92,26 +87,21 @@ public class ProcessFile extends HttpServlet {
 						
 						flb.createTitleServlet().service(request, response);
 						flb.createAbstractServlet().service(request, response);
-
-						
-
-						
-						
+				
 	
 					}else {
 						String sectionText = util.retiraCaracterEspecial(util.UTF8toISO(item.getString()));
-						if(sectionText.matches(".*\\\\section\\{.*")){
-						//flb.createSection(item.getName(), item.getString());
-						Section s = new Section(item.getName(), item.getString());
-						text.setSection(s); 
-						System.out.println(text.mountText());
-						TEXTO_COMPLETO_SEM_INCLUDE = text.mountText();
-						}
+						session.setAttribute("sectionText", sectionText);
+						
+						//if(sectionText.matches(".*\\\\section\\{.*")){}
+						
+						flb.createSectionServlet().service(request, response);
 						
 					}
-					request.getRequestDispatcher("/lista.jsp").forward(request, response);
+					
 			
 		}
+			request.getRequestDispatcher("/lista.jsp").forward(request, response);
 
 		/*
 		 * String arquivo = request.getParameter("arquivo");

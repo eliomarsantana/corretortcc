@@ -10,10 +10,10 @@
 	<tbody>
 		<tr>
 			<%
-				List<String> erros = (List<String>) request.getAttribute("errorTitle");
+				List<String> errorTitle = (List<String>) request.getAttribute("errorTitle");
 
 				int count = 0;
-				for (String erro : erros) {
+				for (String erro : errorTitle) {
 			%>
 			<th scope="row"><%=count++%></th>
 

@@ -4,20 +4,20 @@
 	<thead>
 		<tr>
 			<th>#</th>
-			<th>Erros no Abstract</th>
+			<th>Erros na seção</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<%
-				List<String> errorAbstract = (List<String>) request.getAttribute("errorAbstract");
+				List<String> errorSection = (List<String>) request.getAttribute("errorSection");
 
 				int count = 0;
-				for (String erro : errorAbstract) {
+				for (String error : errorSection) {
 			%>
 			<th scope="row"><%=count++%></th>
 
-			<td><%=erro%></td>
+			<td><%=error%></td>
 		</tr>
 		<%
 			}
